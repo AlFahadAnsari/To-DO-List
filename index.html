@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to od list </title>
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css>
+    <style>
+        *{
+            text-transform: capitalize;
+            
+             
+        }
+
+        body{
+            background-color: lightskyblue;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #todo-container{
+
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 500px;
+            color: black;
+            flex-wrap: wrap;
+            flex-wrap: wrap-reverse ;
+
+        }
+
+        .hd{
+            color: black;
+            display: flex;
+            justify-content: center;
+        }
+
+        input{
+            width: 380px;
+            padding: 15px;
+           border: none;
+            outline: none;
+            border: 2px solid rgb(15, 121, 121);
+           font-weight: bold;
+           
+            
+        }
+
+        #btn{
+            height: 50px;
+            width: 80px;
+            border: none;
+            outline: none;
+            background-color: rgb(26, 18, 18);
+            color: white;
+            cursor: pointer;
+
+           
+        }
+
+        #tex ul{
+            position: relative;
+            background-color: rgb(8, 42, 42);
+            color: white;
+            font-size: 20px;
+            text-align: left;
+            padding: 10px;
+            
+        }
+
+        #tex ul i{
+            position: absolute;
+            right: 8px;
+            cursor: pointer;
+            
+        
+        }
+
+
+    </style>
+
+    
+</head>
+<body>
+    
+
+    <div  id="todo-container">
+        <div id="h1hd">
+            <h2 class="hd"> ToDo List</h2>
+        </div>
+   
+
+    <div  id="todo-input">
+        <input type="text" id="inp" placeholder="enter your task">
+        <button id="btn" onclick="add()">add</button>
+    </div>
+    <div class="tex" id="tex"></div>
+</div>
+
+
+
+<script>
+
+    let inputs=document.getElementById("inp");
+    let tex=document.getElementById("tex")
+
+    function add(){
+        if(inputs.value == ""){
+            alert("enter your task")
+        }else{
+
+            let newelement=document.createElement("ul");
+            newelement.innerHTML=`${inputs.value} <i class="fa-solid fa-trash"></i> `; 
+            tex.appendChild(newelement)
+              inputs.value=""
+            newelement.querySelector("i").addEventListener("click", remove)
+
+            function remove(){
+                newelement.remove()
+            }
+            
+        }
+
+        
+    }
+</script>
+
+</body>
+</html>
